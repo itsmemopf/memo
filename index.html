@@ -133,11 +133,6 @@ body.preview .brand{font-size:30px}
     <img src="cards/laugh.webp" alt="">
     <h1>BIG BRAIN <span>$MEMO</span></h1>
     <p>His forehead holds everything. Can yours? Flip the cards. Match the faces.</p>
-    <div class="ca"><code id="caText">CA coming soon</code><button id="copyCa">Copy</button></div>
-    <div class="links">
-      <a id="xLink" href="#" target="_blank" rel="noopener">X / Twitter</a>
-      <a id="buyLink" href="#" target="_blank" rel="noopener">Buy</a>
-    </div>
   </header>
 
   <nav class="modes" id="modes">
@@ -333,15 +328,6 @@ if (isEmbed){
     document.querySelectorAll("#modes button").forEach(x => x.classList.toggle("on", x===b));
     g.setMode(b.dataset.mode);
   });
-  // header links
-  const caText = document.getElementById("caText");
-  caText.textContent = CONFIG.ca || "CA coming soon";
-  document.getElementById("copyCa").addEventListener("click", e => {
-    if (!CONFIG.ca) return;
-    navigator.clipboard?.writeText(CONFIG.ca).then(() => { e.target.textContent = "Copied"; setTimeout(()=>e.target.textContent="Copy",1400); }).catch(()=>{});
-  });
-  const xl = document.getElementById("xLink"); xl.href = "https://x.com/" + CONFIG.xHandle;
-  const bl = document.getElementById("buyLink"); if (CONFIG.buyUrl) bl.href = CONFIG.buyUrl; else bl.style.display = "none";
 }
 </script>
 </body>
